@@ -1,0 +1,28 @@
+:root {
+    --text: #F1F5F9;
+    --background: #0F172A;
+    --header: #1E293B;
+    --primary: #6b2a88;
+    --secondary: #22C55E;
+    --glow: #8B5CF6;
+    --btn-hover1: #54216b;
+    --btn-hover2: #16A34A;
+
+
+    --space-xs: 8px;
+    --space-sm: 12px;
+    --space-md: 16px;
+    --space-lg: 24px;
+    --space-xl: 32px;
+    --space-2xl: 40px;
+    --space-3xl: 64px;
+
+      /* FONT SIZES */
+    --text-xs: 1.2rem;
+    --text-sm: 1.4rem;
+    --text-md: 1.6rem;
+    --text-lg: 2rem;
+    --text-xl: 2.8rem;
+    --text-2xl: 3.6rem;
+    --text-3xl: 4.2rem;
+}
