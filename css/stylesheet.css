@@ -47,6 +47,7 @@ h4 {
 
 p {
     font-family: 'Manrope', sans-serif;
+    font-size: var(--text-md);
     line-height: 1.5;
 }
 
@@ -62,7 +63,8 @@ h1 {
     font-size: var(--text-3xl);
     letter-spacing: 2px;
     line-height: 1.1;
-    margin-bottom: var(--space-md);
+    margin-bottom: var(--space-sm);
+
 }
 
 h2 {
@@ -108,6 +110,8 @@ a:hover {
 ----------------------------------------------- */
 header {
     background: var(--header);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+
 }
 
 nav {
@@ -147,16 +151,16 @@ header h1 {
 /* --------------------------------------------
                  COMPONENTS
 ----------------------------------------------- */
-  table {
-      color: var(--text);
-      font-size: var(--text-md);
-  }
+table {
+    color: var(--text);
+    font-size: var(--text-md);
+}
 
-  table th,
-  table td {
-      font-family: 'Manrope', sans-serif;
-      line-height: 1.5;
-  }
+table th,
+table td {
+    font-family: 'Manrope', sans-serif;
+    line-height: 1.5;
+}
 
 .btn {
     display: inline-flex;
@@ -165,19 +169,19 @@ header h1 {
 
     border: none;
     border-radius: 8px;
-    
+
     color: var(--text);
     background: var(--primary);
-    
+
     font-family: 'BebasNeue', sans-serif;
     font-size: var(--text-md);
     letter-spacing: 0.5px;
-     line-height: 1;
-    
+    line-height: 1;
+
     gap: 6px;
     height: 36px;
     padding: 0 var(--space-md);
-    
+
     cursor: pointer;
     transition: all 0.2s ease, box-shadow 0.25s ease;
 }
@@ -186,7 +190,7 @@ header h1 {
     background: var(--btn-hover1);
     color: var(--text);
     box-shadow: 0 0 8px rgba(139, 92, 246, 0.4),
-    0 0 16px rgba(139, 92, 246, 0.2);
+        0 0 16px rgba(139, 92, 246, 0.2);
     transform: translateY(-1px);
 }
 
@@ -217,28 +221,31 @@ header h1 {
     flex-shrink: 0;
     transform: translateY(-1px);
 }
+
 .searchbar {
     display: flex;
     flex: 1;
     align-items: center;
     gap: var(--space-sm);
-    max-width: 500px;
+    
+    max-width: 600px;
 }
 
 .search-input {
     flex: 1;
     border: 1px solid var(--header);
     border-radius: 6px;
-    
-    background: var(--background);
+
+    background: var(--search-bg);
     color: var(--text);
     outline: none;
-    
+
     font-family: 'Manrope', sans-serif;
     font-size: var(--text-sm);
     line-height: 1.5;
-    
+
     padding: var(--space-sm) var(--space-md);
+    min-width: 300px;
 }
 
 .search-input:focus {
@@ -274,29 +281,10 @@ footer {
     justify-content: space-between;
     background: var(--header);
     color: var(--text);
-    padding: var(--space-sm) var(--space-lg);
+    padding: var(--space-md) var(--space-lg);
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 footer p {
     font-size: var(--text-xs);
-}
-
-/* --------------------------------------------
-                 HOMEPAGE 
------------------------------------------------ */
-.group-items img {
-    width: 150px;
-}
-
-.group-items {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: var(--space-lg);
-    margin: var(--space-lg);
-}
-
-.homepage-content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
 }
