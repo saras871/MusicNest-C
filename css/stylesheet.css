@@ -203,7 +203,7 @@ table td {
     opacity: 0.9;
 }
 
-.btn-delete:hover {
+.btn-delete:hover{
     background: #7F1D1D;
     opacity: 1;
     box-shadow: 0 0 8px rgba(185, 28, 28, 0.4),
@@ -227,11 +227,11 @@ table td {
     flex: 1;
     align-items: center;
     gap: var(--space-sm);
-    
+
     max-width: 600px;
 }
 
-.search-input {
+.search-input, .form-input {
     flex: 1;
     border: 1px solid var(--header);
     border-radius: 6px;
@@ -248,16 +248,16 @@ table td {
     min-width: 300px;
 }
 
-.search-input:focus {
+.search-input:focus, .form-input:focus {
     border-color: #291c47;
     box-shadow: 0 0 5px var(--glow);
 }
 
-.search-input::placeholder {
+.search-input::placeholder, .form-input::placeholder {
     color: #94A3B8;
 }
 
-.search-input:focus::placeholder {
+.search-input:focus::placeholder, .form-input:focus::placeholder {
     opacity: 0.5;
 }
 
