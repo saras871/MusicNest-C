@@ -108,14 +108,15 @@
   }
 
   .page-nr.active {
-    background: var(--btn-primary);
-    color: white;
-    border-color: var(--btn-primary);
-}
-.pagination a.disabled {
-    opacity: 0.4;
-    pointer-events: none;
-}
+      background: var(--btn-primary);
+      color: white;
+      border-color: var(--btn-primary);
+  }
+
+  .pagination a.disabled {
+      opacity: 0.4;
+      pointer-events: none;
+  }
 
   /* --------------------------------------------
                MEDIA QUERIES
@@ -214,3 +215,4 @@
           margin-bottom: var(--space-xs);
       }
   }
+ 
