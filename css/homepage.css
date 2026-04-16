@@ -1,42 +1,54 @@
-.group-items img {
-    width: 100%;
-    height: 120px;
-    border-radius: 6px;
-    object-fit: cover;
+/* --------------------------------------------
+               HERO SECTION
+----------------------------------------------- */
+
+.hero-section {
+    background: var(--hero-bg);
+    border-bottom: 1px solid var(--border);
 }
 
-.group-items {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: var(--space-xl);
-    margin: var(--space-xl) var(--space-lg) var(--space-lg) var(--space-lg);
+.hero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    gap: var(--space-md);
+    margin-bottom: var(--space-lg);
+    padding: var(--space-3xl) 0 var(--space-2xl);
 }
 
-.group-item {
-    display: block;
-    border-radius: 8px;
-    background: rgba(255, 255, 255, 0.02);
-    border: 1px solid rgba(255, 255, 255, 0.04);
-    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-    text-decoration: none;
-    color: inherit;
-
-    padding: var(--space-sm);
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
+.hero-title {
+    font-size: var(--text-4xl);
+    letter-spacing: 3px;
+    margin-bottom: var(--space-lg);
 }
 
-.group-item:hover {
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
-    transform: translateY(-4px);
-    cursor: pointer;
+.hero-btn {
+    height: 42px;
+    box-shadow: 0 0 12px var(--btn-primary-glow-lg);
+    margin-top: var(--space-md);
+    padding: 0 var(--space-xl);
 }
+
+.hero-info {
+    opacity: 0.95;
+    margin: 0;
+}
+
+.made-by {
+    font-size: var(--text-xs);
+    opacity: 0.6;
+    margin: var(--space-lg) 0 0;
+}
+
+/* --------------------------------------------
+              HOMEPAGE CONTENT
+----------------------------------------------- */
 
 .homepage-content {
     display: flex;
     flex-direction: column;
     align-items: center;
-    max-width: 1200px;
-    margin: 0 auto;
     padding: var(--space-2xl) 0;
 }
 
@@ -44,71 +56,101 @@
     margin-bottom: var(--space-lg);
 }
 
-.hero-section {
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-    background: var(--hero);
+/* --------------------------------------------
+                    CARDS
+----------------------------------------------- */
+
+.group-cards {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--space-xl);
+    margin: var(--space-xl) var(--space-lg) var(--space-lg) var(--space-lg);
 }
 
-.hero {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: var(--space-md);
-    margin-bottom: var(--space-lg);
-    padding: var(--space-3xl) 0 var(--space-2xl);
+.card-image {
+    height: 120px;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 6px;
 }
 
-.hero h1 {
-    font-size: var(--text-4xl);
-    margin-bottom: var(--space-lg);
-    letter-spacing: 3px;
-}
-
-.hero .btn {
-    margin-top: var(--space-md);
-}
-
-.homepage-content h2 {
-    margin-top: var(--space-lg);
-    margin-bottom: var(--space-md);
-}
-
-.hero p {
-    margin: 0;
-    opacity: 0.95;
-}
-
-.hero .btn {
-    padding: 0 var(--space-xl);
-    height: 42px;
-    box-shadow: 0 0 12px rgba(139, 92, 246, 0.25);
-}
-
-.hero .made-by {
-    font-size: var(--text-xs);
-    margin-top: var(--space-lg);
-    opacity: 0.6;
-}
-
-.group-description-wrapper {
+.card-content-wrapper {
     margin-top: var(--space-sm);
 }
 
-.group-description-wrapper h4 {
+.card-title {
     font-size: var(--text-md);
     letter-spacing: 1px;
 }
 
-.group-description-wrapper p {
+.card-info {
     font-size: var(--text-sm);
     opacity: 0.85;
 }
 
-.group-description {
+.card-content {
     margin: var(--space-xs) 0;
 }
+
+/* --------------------------------------------
+                   BUTTON
+----------------------------------------------- */
 
 .view-all-btn {
     margin: var(--space-xl) auto 0;
     padding: 0 var(--space-lg);
+}
+
+/* --------------------------------------------
+               MEDIA QUERIES
+----------------------------------------------- */
+
+@media screen and (min-width: 651px) and (max-width: 890px) {
+    .group-cards {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media screen and (max-width: 650px) {
+    .group-cards {
+        grid-template-columns: 1fr;
+    }
+
+    .card {
+        padding: var(--space-md);
+    }
+
+    .card-image {
+        height: 160px;
+    }
+
+    .card-title {
+        font-size: var(--text-lg);
+    }
+
+    .card-info {
+        font-size: var(--text-md);
+    }
+
+    .hero-title {
+        font-size: var(--text-2xl);
+        margin-bottom: var(--space-lg);
+    }
+
+    .hero-info {
+        font-size: var(--text-sm);
+    }
+
+    h2 {
+        font-size: var(--text-xl);
+    }
+
+    .btn-secondary {
+        height: 33px;
+    }
+
+    .view-all-btn {
+        margin: var(--space-lg) auto 0;
+    }
+
 }

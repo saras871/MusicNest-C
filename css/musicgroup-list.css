@@ -1,74 +1,48 @@
   /* --------------------------------------------
-                       LAYOUT
+                   ACTIONS
     ----------------------------------------------- */
-
-  .musicgroup-list-main {
-      margin: 0 auto;
-      padding: var(--space-lg) var(--space-lg) var(--space-2xl);
-      max-width: 1200px;
-  }
-
-  .table-container {
-      overflow-x: auto;
-  }
 
   .actions {
       display: flex;
       align-items: center;
       gap: var(--space-md);
       margin-bottom: var(--space-2xl);
-      width: 85%;
+  }
+
+  .add-new-btn {
+      padding-right: 26px;
+  }
+
+  .btn-icon {
+      display: flex;
+      align-items: center;
+  }
+
+  .btn-icon svg {
+      width: 16px;
+      height: 16px;
+      flex-shrink: 0;
+      transform: translateY(-1px);
   }
 
   /* --------------------------------------------
-                 COMPONENTS
+                 TABLE
 ----------------------------------------------- */
-  .musicgroup-table {
-      table-layout: fixed;
-      border-collapse: collapse;
-      width: 85%;
-      background: rgba(255,255,255,0.01);
-      border-radius: 8px;
-  }
-
-  .musicgroup-table td {
-      border-bottom: 1px solid #1E293B;
-      font-size: var(--text-md);
-      padding: var(--space-md) var(--space-md);
-  }
-
-  .musicgroup-table th {
-      text-align: left;
-      color: #94A3B8;
-      border-bottom: 2px solid #334155;
-      font-size: var(--text-sm);
-      letter-spacing: 1px;
-      font-weight: 600;
-      padding: var(--space-sm);
-  }
-
-  .musicgroup-table tr:hover {
-      background: rgba(139, 92, 246, 0.06);
-      transition: background 0.2s ease;
-  }
-
-  .musicgroup-table tr {
-      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-  }
 
   .musicgroup-table img {
       width: 100px;
       border-radius: 6px;
   }
 
-  .musicgroup-table td.btn-cell,
-  .musicgroup-table th.btn-cell {
-      padding: var(--space-sm);
+  .musicgroup-table .table-header,
+  .musicgroup-table .table-row {
+      display: grid;
+      grid-template-columns: auto 210px 160px 120px 100px 170px;
   }
 
-  .musicgroup-table td:first-child {
-      width: 120px;
-      text-align: center;
+  .musicgroup-table .btn-cell {
+      padding: var(--space-md) var(--space-sm) var(--space-sm);
+
   }
 
   .btn-wrapper {
@@ -77,41 +51,166 @@
       align-items: center;
       gap: var(--space-sm);
       min-width: 140px;
+      padding: var(--space-md) var(--space-md);
   }
 
-  .add-new-btn {
-         padding-right: 26px;
-  }
+  /* --------------------------------------------
+              PAGINATION
+----------------------------------------------- */
 
   .pagination {
       display: flex;
       justify-content: center;
       align-items: center;
+
       gap: 0;
       margin-top: var(--space-2xl);
       margin-bottom: var(--space-lg);
-      width: 85%;
   }
 
+  .pagination .page-nr,
   .pagination a {
-      color: var(--text);
+      border: 1px solid var(--table-header-border);
       font-size: var(--text-sm);
+      color: var(--text);
       text-decoration: none;
-      border: 1px solid #334155;
       padding: var(--space-sm) var(--space-md);
-     /* transition: background 0.2s ease, color 0.2s ease;  */
+      width: 42px;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
   }
 
   .pagination a:first-child {
-    border-radius: 6px 0 0 6px;
+      border-radius: 6px 0 0 6px;
   }
 
   .pagination a:last-child {
-    border-radius: 0 6px 6px 0;
+      border-radius: 0 6px 6px 0;
   }
 
-.pagination a:hover {
-    background: rgba(139, 92, 246, 0.1);
-    border-color: var(--primary);
-    transform: translateY(-1px);
+  .pagination .page-nr:hover,
+  .pagination a:hover {
+      background: var(--pagination-hover);
+      border-color: var(--btn-primary-glow-sm);
+      transform: translateY(-1px);
+  }
+
+  .th {
+      padding: 0 var(--space-md);
+  }
+
+  .dots {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+  }
+
+  .page-nr.active {
+    background: var(--btn-primary);
+    color: white;
+    border-color: var(--btn-primary);
 }
+.pagination a.disabled {
+    opacity: 0.4;
+    pointer-events: none;
+}
+
+  /* --------------------------------------------
+               MEDIA QUERIES
+  ----------------------------------------------- */
+  @media screen and (max-width: 950px) and (min-width: 651px) {
+
+      .image-header,
+      .image-cell {
+          display: none;
+      }
+
+      .musicgroup-table .table-header,
+      .musicgroup-table .table-row {
+          grid-template-columns: auto 150px 110px 70px 50px 110px;
+      }
+
+
+      .table-cell {
+          font-size: var(--text-sm);
+          padding: var(--space-sm) var(--space-sm);
+      }
+
+      .table .btn {
+          font-size: var(--text-sm);
+          min-width: 70px;
+      }
+
+      .btn-wrapper {
+          flex-direction: column;
+          padding: var(--space-xs);
+      }
+  }
+
+  @media screen and (max-width: 650px) {
+      .actions {
+          align-items: flex-start;
+          flex-direction: column;
+      }
+
+      .table,
+      .table-body,
+      .table-row,
+      .table-cell {
+          display: block;
+          width: 100%;
+      }
+
+      .table {
+          background: transparent;
+      }
+
+      .table-body {
+          display: flex;
+          flex-direction: column;
+          gap: var(--space-lg);
+      }
+
+      .table {
+          display: grid;
+          grid-template-columns: 1fr;
+          align-items: start;
+          background: var(--card-bg);
+          border-radius: 8px;
+
+          max-width: 380px;
+          gap: var(--space-sm);
+          margin-bottom: var(--space-lg);
+      }
+
+      .table-cell {
+          padding: var(--space-xs) var(--space-md);
+          font-size: var(--text-lg);
+      }
+
+      .table td:nth-child(1) {
+          padding-top: var(--space-md);
+
+      }
+
+      .table td:nth-child(2) {
+          font-weight: 600;
+      }
+
+      .musicgroup-table img {
+          width: 100%;
+          display: block;
+      }
+
+
+      .table-header {
+          display: none;
+      }
+
+      .btn-wrapper {
+          margin-top: 0;
+          margin-bottom: var(--space-xs);
+      }
+  }

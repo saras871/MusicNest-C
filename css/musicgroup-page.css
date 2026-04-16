@@ -1,0 +1,160 @@
+ /* --------------------------------------------
+                GROUP DETAILS
+    ----------------------------------------------- */
+ .group-details {
+     color: var(--text);
+     padding: 0 var(--space-xl) var(--space-xl);
+     margin-top: var(--space-md);
+ }
+
+ .group-details-grid {
+     display: grid;
+     grid-template-columns: repeat(2, 1fr);
+     gap: var(--space-lg);
+     margin-top: var(--space-lg);
+ }
+
+ .detail-item {
+     display: flex;
+     flex-direction: column;
+     background: rgba(255, 255, 255, 0.01);
+     border-radius: 6px;
+     padding: var(--space-md);
+ }
+
+ .detail-item:hover {
+     border-color: var(--searchbar-border);
+     box-shadow: 0 0 5px var(--searchbar-glow);
+ }
+
+ .label {
+     font-size: var(--text-sm);
+     letter-spacing: 1px;
+     margin-bottom: var(--space-xs);
+ }
+
+ .value {
+     font-size: var(--text-lg);
+     font-weight: 600;
+ }
+
+ .musicgroup-main .card:hover {
+     box-shadow: 0 0px 0px var(--card-shadow-hover);
+     transform: translateY(0px);
+     cursor: default;
+ }
+
+ /* --------------------------------------------
+                   TABLES
+  ----------------------------------------------- */
+ .albums-table .table-header,
+ .albums-table .album-row {
+     display: grid;
+     grid-template-columns: 220px 1fr 220px;
+ }
+
+ .album-row {
+     border-bottom: 1px solid var(--border);
+ }
+
+ .album-row:hover {
+     background: var(--table-hover);
+     transition: background 0.2s ease;
+ }
+
+ .albums-table img {
+     width: 100px;
+     border-radius: 3px;
+ }
+
+ .members-table .table-header,
+ .members-table .table-row {
+     display: grid;
+     grid-template-columns: 1fr 1fr;
+ }
+
+ .bottom-section .view-all-btn {
+     display: block;
+     margin: var(--space-lg) auto 0;
+     padding: 0 var(--space-lg);
+ }
+
+ .bottom-section {
+     width: 100%;
+ }
+
+ .musicgroup-main .section-title {
+     margin-top: var(--space-2xl);
+     margin-bottom: var(--space-lg);
+ }
+
+ .second-cell {
+    padding-left: 0;
+ }
+
+ /* --------------------------------------------
+                MEDIA QUERIES
+  ----------------------------------------------- */
+
+ @media screen and (max-width: 800px) and (min-width: 660px) {
+
+     .album-row {
+         grid-template-columns: 180px 1fr 180px;
+     }
+
+     .label {
+         font-size: var(--text-xs);
+         letter-spacing: 1px;
+         margin-bottom: var(--space-xs);
+     }
+
+     .value {
+         font-size: var(--text-md);
+         font-weight: 600;
+     }
+ }
+
+ @media screen and (max-width: 659px) {
+
+     h1 {
+         font-size: var(--text-2xl);
+     }
+
+     h2 {
+         font-size: var(--text-xl);
+     }
+
+     .table-cell {
+         font-size: var(--text-sm);
+     }
+
+     .th {
+         font-size: var(--text-xs);
+     }
+
+     .albums-table img {
+         width: 60px;
+         border-radius: 3px;
+     }
+
+     .albums-table .table-header,
+     .albums-table .album-row {
+             grid-template-columns: 100px 1fr 120px;
+         }
+
+         .group-details-grid {
+             gap: var(--space-md);
+         }
+
+         .label {
+             font-size: var(--text-xxs);
+             letter-spacing: 1px;
+             margin-bottom: var(--space-xs);
+         }
+
+         .value {
+             font-size: var(--text-sm);
+             font-weight: 600;
+         }
+
+     }
