@@ -28,6 +28,9 @@
   /* --------------------------------------------
                  TABLE
 ----------------------------------------------- */
+  .th {
+      padding: 0 var(--space-md);
+  }
 
   .musicgroup-table img {
       width: 100px;
@@ -97,9 +100,6 @@
       transform: translateY(-1px);
   }
 
-  .th {
-      padding: 0 var(--space-md);
-  }
 
   .dots {
       display: flex;
@@ -121,98 +121,103 @@
   /* --------------------------------------------
                MEDIA QUERIES
   ----------------------------------------------- */
-  @media screen and (max-width: 950px) and (min-width: 651px) {
 
-      .image-header,
-      .image-cell {
-          display: none;
-      }
-
-      .musicgroup-table .table-header,
-      .musicgroup-table .table-row {
-          grid-template-columns: auto 150px 110px 70px 50px 110px;
-      }
-
-
-      .table-cell {
-          font-size: var(--text-sm);
-          padding: var(--space-sm) var(--space-sm);
-      }
-
-      .table .btn {
-          font-size: var(--text-sm);
-          min-width: 70px;
-      }
-
-      .btn-wrapper {
-          flex-direction: column;
-          padding: var(--space-xs);
-      }
-  }
-
-  @media screen and (max-width: 650px) {
+  @media screen and (max-width: 950px) {
       .actions {
           align-items: flex-start;
           flex-direction: column;
       }
 
-      .table,
-      .table-body,
-      .table-row,
-      .table-cell {
-          display: block;
-          width: 100%;
+      .musicgroup-table .table-header {
+          display: none;
       }
 
-      .table {
-          background: transparent;
-      }
-
-      .table-body {
+      .musicgroup-table .table-body {
           display: flex;
           flex-direction: column;
           gap: var(--space-lg);
       }
 
-      .table {
-          display: grid;
-          grid-template-columns: 1fr;
-          align-items: start;
+      .musicgroup-table .table-row {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          gap: var(--space-sm);
+          padding: var(--space-xl);
           background: var(--card-bg);
           border-radius: 8px;
+          box-shadow: 0 4px 12px var(--card-shadow);
+      }
 
-          max-width: 380px;
-          gap: var(--space-sm);
-          margin-bottom: var(--space-lg);
+      .image-cell {
+          margin-bottom: var(--space-md);
+      }
+
+      .image-cell img {
+          width: 100%;
+          object-fit: cover;
+          border-radius: 6px;
       }
 
       .table-cell {
-          padding: var(--space-xs) var(--space-md);
+          display: flex;
+          justify-content: flex-start;
           font-size: var(--text-lg);
-      }
-
-      .table td:nth-child(1) {
-          padding-top: var(--space-md);
+          padding: 0;
+          width: fit-content;
 
       }
 
-      .table td:nth-child(2) {
+      .table-cell[data-label]::before {
+          content: attr(data-label) ":";
+          margin-right: var(--space-xs);
+      }
+
+
+      .group-name-cell {
+          font-size: var(--text-xl);
           font-weight: 600;
-      }
-
-      .musicgroup-table img {
-          width: 100%;
-          display: block;
-      }
-
-
-      .table-header {
-          display: none;
+          margin-bottom: var(--space-xs);
       }
 
       .btn-wrapper {
-          margin-top: 0;
-          margin-bottom: var(--space-xs);
+          display: flex;
+          flex-direction: row;
+          justify-content: center;
+          gap: var(--space-sm);
+          padding-bottom: 0;
+      }
+
+      .musicgroup-table .btn {
+          font-size: var(--text-md);
+          min-width: 90px;
+      }
+
+  }
+
+  @media screen and (max-width: 470px) {
+
+      .table-cell {
+          font-size: var(--text-md);
+      }
+
+      .group-name-cell {
+          font-size: var(--text-lg);
+      }
+
+      .musicgroup-table .btn {
+          font-size: var(--text-sm);
+          min-width: 80px;
+      }
+
+      .btn-wrapper {
+          padding: 0 var(--space-md);
       }
   }
- 
+
+  @media screen and (max-width: 950px) and (min-width: 651px) {
+      .container {
+          padding-left: var(--space-3xl);
+          padding-right: var(--space-3xl);
+      }
+  }
