@@ -73,12 +73,6 @@
      grid-template-columns: 1fr 1fr;
  }
 
- .bottom-section .view-all-btn {
-     display: block;
-     margin: var(--space-lg) auto 0;
-     padding: 0 var(--space-lg);
- }
-
  .bottom-section {
      width: 100%;
  }

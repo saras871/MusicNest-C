@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route, Link } from 'react-router'
+import { BrowserRouter, Routes, Route, } from 'react-router'
 import Nav from './components/nav'
 import HomePage from './HomePage'
 import MusicGroupList from './MusicGroupList'
@@ -9,6 +9,7 @@ function App() {
 
   return (
     <BrowserRouter>
+    {/* Renders the navigation bar at the top of all pages */}
     <Nav/>
       <Routes>
         <Route path="/" element={<HomePage />}/>

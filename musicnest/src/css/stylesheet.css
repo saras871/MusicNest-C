@@ -100,25 +100,10 @@ a:hover {
     color: var(--text-muted);
 }
 
-/* --------------------------------------------
-                    LAYOUT
-    ----------------------------------------------- */
-.content-bg {
-    flex: 1;
-    background: var(--background);
-}
 
 /* --------------------------------------------
                   HEADER
 ----------------------------------------------- */
-header {
-    background: var(--header-and-footer);
-    border-bottom: 1px solid var(--border);
-}
-
-header h1 {
-    font-size: var(--text-2xl);
-}
 
 nav {
     display: flex;
@@ -190,17 +175,6 @@ nav img {
 
 .btn:active {
     transform: translateY(1px);
-}
-
-.btn-danger {
-    background: var(--btn-danger);
-    opacity: 0.9;
-}
-
-.btn-danger:hover {
-    background: var(--btn-danger-hover);
-    opacity: 1;
-    box-shadow: 0 0 8px var(--btn-danger-glow-sm), 0 0 16px var(--btn-danger-glow-md);
 }
 
 .btn-secondary {
@@ -314,22 +288,7 @@ nav img {
     transform: translateY(-4px);
 }
 
-/* --------------------------------------------
-                  FOOTER 
------------------------------------------------ */
-footer {
-    display: flex;
-    justify-content: space-between;
 
-    background: var(--header-and-footer);
-    border-top: 1px solid var(--border);
-    color: var(--text);
-    padding: var(--space-md) var(--space-lg);
-}
-
-footer p {
-    font-size: var(--text-xs);
-}
 
 /* --------------------------------------------
               MEDIA QUERIES
@@ -345,9 +304,6 @@ footer p {
         display: none;
     }
 
-    header h1 {
-        font-size: var(--text-3xl);
-    }
 
     .navigation-items {
         font-size: var(--text-xl);
@@ -363,7 +319,4 @@ footer p {
         padding: var(--space-xs) var(--space-md);
     }
 
-    footer p {
-        font-size: var(--text-xxs);
-    }
 }

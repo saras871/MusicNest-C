@@ -5,7 +5,7 @@ function Nav() {
     return (
         <nav>
             <div className="brand">
-                <img src="images/icon-music-logo.png" alt="MusicNest logo" class="logo" />
+                <img src="/images/icon-music-logo.png" alt="MusicNest logo" className="logo" />
                 <h1>MusicNest</h1>
             </div>
             <ul className="navigation-items">

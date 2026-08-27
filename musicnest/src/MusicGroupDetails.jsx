@@ -6,17 +6,17 @@ import './css/colors-fonts.css'
 
 
 function MusicGroupDetails() {
-
+    // Extracts the 'id' parameter from the URL using useParams
     const { id } = useParams()
-
+    // State that holds the fetched music group details
     const [musicGroup, setMusicGroup] = useState(null)
-
+    // Fetches the music group details whenever the page loads or 'id' parameter changes
     useEffect(() => {
 
         async function fetchGroup() {
 
             try {
-
+                // Fetches the music group details from the API based on the 'id' parameter
                 const response = await fetch(
                     `https://music.api.public.seido.se/api/MusicGroups/ReadItem?id=${id}`
                 )
@@ -24,9 +24,9 @@ function MusicGroupDetails() {
                 if (!response.ok) {
                     throw new Error('Network response was not ok')
                 }
-
+                // Parses the JSON data from the response
                 const data = await response.json()
-
+                // Sets the state with the fetched music group details
                 setMusicGroup(data.item)
 
             } catch (error) {
@@ -98,7 +98,7 @@ function MusicGroupDetails() {
                             </div>
 
                             <div className="value">
-                                {musicGroup.albums?.length ?? 0}
+                                {musicGroup.albums?.filter((album) => album.releaseYear >= musicGroup.establishedYear).length ?? 0}
                             </div>
                         </div>
 
@@ -203,7 +203,7 @@ function MusicGroupDetails() {
 
                         <div className="table-body">
 
-                            {musicGroup.albums?.map((album) => (
+                            {musicGroup.albums?.filter((album) => album.releaseYear >= musicGroup.establishedYear).map((album) => (
 
                                 <div
                                     className="album-row"

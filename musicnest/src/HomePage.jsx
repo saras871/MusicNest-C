@@ -1,11 +1,44 @@
+import { useEffect, useState } from 'react'
 import { Link } from 'react-router'
+
 import './css/stylesheet.css'
 import './css/homepage.css'
 import './css/colors-fonts.css'
 
 function HomePage() {
-  return (
-     <main>
+    // State to hold the fetched music groups
+    const [musicGroups, setMusicGroups] = useState([])
+    // State to track loading status and show loading message while fetching data
+    const [loading, setLoading] = useState(true)
+
+    useEffect(() => {
+        async function fetchGroups() {
+            try {
+                // Fetch the first 8 music groups from the API
+                const url =
+                    'https://music.api.public.seido.se/api/MusicGroups/Read?pageNr=0&pageSize=8'
+
+                const response = await fetch(url)
+                // Checks if the response is successful
+                if (!response.ok) {
+                    throw new Error('Network response was not ok')
+                }
+                // Parses the JSON data from the response
+                const data = await response.json()
+                // Sets the state with the fetched music groups
+                setMusicGroups(data.pageItems)
+            } catch (error) {
+                console.error('Error fetching music groups:', error)
+            } finally {
+                setLoading(false)
+            }
+        }
+
+        fetchGroups()
+    }, [])
+
+    return (
+        <main>
             <section className="hero-section">
                 <div className="hero">
                     <h1 className="hero-title">Welcome to MusicNest</h1>
@@ -14,7 +47,10 @@ function HomePage() {
                         Discover and learn about your favorite music groups.
                     </p>
 
-                    <Link className="hero-btn btn" to="/music-groups">
+                    <Link
+                        className="hero-btn btn"
+                        to="/music-groups"
+                    >
                         Explore Groups
                     </Link>
 
@@ -25,7 +61,9 @@ function HomePage() {
             </section>
 
             <section className="homepage-content container">
-                <h2 className="section-title">Browse Music Groups</h2>
+                <h2 className="section-title">
+                    Browse Music Groups
+                </h2>
 
                 <form className="searchbar">
                     <input
@@ -43,133 +81,37 @@ function HomePage() {
                 </form>
 
                 <div className="group-cards">
+                    {loading ? (
+                        <p>Loading music groups...</p>
+                    ) : (
+                        musicGroups.map((musicGroup) => (
+                            <Link
+                                className="card"
+                                key={musicGroup.musicGroupId}
+                                to={`/music-groups/${musicGroup.musicGroupId}`}
+                            >
+                                <img
+                                    className="card-image"
+                                    src="/images/band-performing-studio.jpg"
+                                    alt="Band performing in a recording studio"
+                                />
 
-                    <a className="card">
-                        <img
-                            className="card-image"
-                            src="/images/band-performing-studio.jpg"
-                            alt="Band performing in a recording studio"
-                        />
-                        <div className="card-content-wrapper">
-                            <h4 className="card-content card-title">
-                                The Rolling Stones
-                            </h4>
-                            <p className="card-content card-info">Rock</p>
-                            <p className="card-content card-info">31 Albums</p>
-                        </div>
-                    </a>
+                                <div className="card-content-wrapper">
+                                    <h4 className="card-content card-title">
+                                        {musicGroup.name}
+                                    </h4>
 
-                    <a className="card">
-                        <img
-                            className="card-image"
-                            src="/images/band-performing-studio.jpg"
-                            alt="Band performing in a recording studio"
-                        />
-                        <div className="card-content-wrapper">
-                            <h4 className="card-content card-title">
-                                The Beatles
-                            </h4>
-                            <p className="card-content card-info">Rock / Pop</p>
-                            <p className="card-content card-info">13 Albums</p>
-                        </div>
-                    </a>
+                                    <p className="card-content card-info">
+                                        {musicGroup.strGenre}
+                                    </p>
 
-                    <a className="card">
-                        <img
-                            className="card-image"
-                            src="/images/band-performing-studio.jpg"
-                            alt="Band performing in a recording studio"
-                        />
-                        <div className="card-content-wrapper">
-                            <h4 className="card-content card-title">
-                                Modest Mouse
-                            </h4>
-                            <p className="card-content card-info">Indie Rock</p>
-                            <p className="card-content card-info">7 Albums</p>
-                        </div>
-                    </a>
-
-                    <a className="card">
-                        <img
-                            className="card-image"
-                            src="/images/band-performing-studio.jpg"
-                            alt="Band performing in a recording studio"
-                        />
-                        <div className="card-content-wrapper">
-                            <h4 className="card-content card-title">
-                                Wet Leg
-                            </h4>
-                            <p className="card-content card-info">Indie Rock</p>
-                            <p className="card-content card-info">1 Album</p>
-                        </div>
-                    </a>
-
-                    <a className="card">
-                        <img
-                            className="card-image"
-                            src="/images/band-performing-studio.jpg"
-                            alt="Band performing in a recording studio"
-                        />
-                        <div className="card-content-wrapper">
-                            <h4 className="card-content card-title">
-                                Radiohead
-                            </h4>
-                            <p className="card-content card-info">
-                                Alternative Rock
-                            </p>
-                            <p className="card-content card-info">9 Albums</p>
-                        </div>
-                    </a>
-
-                    <a className="card">
-                        <img
-                            className="card-image"
-                            src="/images/band-performing-studio.jpg"
-                            alt="Band performing in a recording studio"
-                        />
-                        <div className="card-content-wrapper">
-                            <h4 className="card-content card-title">
-                                Nirvana
-                            </h4>
-                            <p className="card-content card-info">
-                                Grunge / Alternative Rock
-                            </p>
-                            <p className="card-content card-info">3 Albums</p>
-                        </div>
-                    </a>
-
-                    <a className="card">
-                        <img
-                            className="card-image"
-                            src="/images/band-performing-studio.jpg"
-                            alt="Band performing in a recording studio"
-                        />
-                        <div className="card-content-wrapper">
-                            <h4 className="card-content card-title">
-                                Coldplay
-                            </h4>
-                            <p className="card-content card-info">
-                                Alternative Rock / Pop Rock
-                            </p>
-                            <p className="card-content card-info">10 Albums</p>
-                        </div>
-                    </a>
-
-                    <a className="card">
-                        <img
-                            className="card-image"
-                            src="/images/band-performing-studio.jpg"
-                            alt="Band performing in a recording studio"
-                        />
-                        <div className="card-content-wrapper">
-                            <h4 className="card-content card-title">
-                                Fleetwood Mac
-                            </h4>
-                            <p className="card-content card-info">Rock</p>
-                            <p className="card-content card-info">18 Albums</p>
-                        </div>
-                    </a>
-
+                                    <p className="card-content card-info">
+                                        {musicGroup.establishedYear}
+                                    </p>
+                                </div>
+                            </Link>
+                        ))
+                    )}
                 </div>
 
                 <Link
@@ -180,7 +122,7 @@ function HomePage() {
                 </Link>
             </section>
         </main>
-  )
+    )
 }
 
 export default HomePage
